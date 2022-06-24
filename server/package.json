@@ -1,20 +1,24 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "socket-io": "^1.0.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.18"
-  }
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node index.js",
+		"server": "nodemon index.js",
+		"client": "cd ../client && yarn run start",
+		"dev": "concurrently \"yarn run server\" \"yarn run client\""
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"express": "^4.18.1",
+		"socket-io": "^1.0.0"
+	},
+	"devDependencies": {
+		"concurrently": "^7.2.2",
+		"nodemon": "^2.0.18"
+	}
 }
