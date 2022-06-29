@@ -4,12 +4,12 @@ import randomWords from 'random-words';
 import { v4 } from 'uuid';
 import './App.css';
 
-const generateRandomWords = () => {
-	const randomNum = (min, max) => {
+const generateRandomWords = (min, max) => {
+	const randomNum = () => {
 		return Math.floor(Math.random() * (max - min + 1)) + min;
 	};
 
-	return randomWords(randomNum(1, 10)).join(' ');
+	return randomWords(randomNum(min, max)).join(' ');
 };
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
 		socket.emit('send_message', {
 			id: v4(),
 			userName: 'anon',
-			message: generateRandomWords(),
+			message: generateRandomWords(1, 10),
 		});
 	};
 
